@@ -1,0 +1,271 @@
+{
+
+  "_version": "1.60.0",
+
+  "sap.app": {
+
+    "id": "eshmbtpportal",
+
+    "type": "application",
+
+    "i18n": "i18n/i18n.properties",
+
+    "applicationVersion": {
+
+      "version": "0.0.1"
+
+    },
+
+    "title": "{{appTitle}}",
+
+    "description": "{{appDescription}}",
+
+    "resources": "resources.json",
+
+    "sourceTemplate": {
+
+      "id": "@sap/generator-fiori:basic",
+
+      "version": "1.18.5",
+
+      "toolsId": "d1d48b74-7487-46f0-8c6b-9c4a38d98e99"
+
+    },
+
+    "dataSources": {
+
+      "mainService": {
+
+        "uri": "/sap/opu/odata/sap/ZSERVICEBINDING/",
+
+        "type": "OData",
+
+        "settings": {
+
+          "annotations": [],
+
+          "localUri": "localService/mainService/metadata.xml",
+
+          "odataVersion": "2.0"
+
+        }
+
+      }
+
+    }
+
+  },
+
+  "sap.ui": {
+
+    "technology": "UI5",
+
+    "icons": {
+
+      "icon": "",
+
+      "favIcon": "",
+
+      "phone": "",
+
+      "phone@2": "",
+
+      "tablet": "",
+
+      "tablet@2": ""
+
+    },
+
+    "deviceTypes": {
+
+      "desktop": true,
+
+      "tablet": true,
+
+      "phone": true
+
+    }
+
+  },
+
+  "sap.ui5": {
+
+    "flexEnabled": true,
+
+    "dependencies": {
+
+      "minUI5Version": "1.120.14",
+
+      "libs": {
+
+        "sap.m": {},
+
+        "sap.ui.core": {}
+
+      }
+
+    },
+
+    "contentDensities": {
+
+      "compact": true,
+
+      "cozy": true
+
+    },
+
+    "models": {
+
+      "i18n": {
+
+        "type": "sap.ui.model.resource.ResourceModel",
+
+        "settings": {
+
+          "bundleName": "eshmbtpportal.i18n.i18n"
+
+        }
+
+      },
+
+      "": {
+
+        "dataSource": "mainService",
+
+        "preload": true,
+
+        "settings": {}
+
+      }
+
+    },
+
+    "resources": {
+
+      "css": [
+
+        {
+
+          "uri": "css/style.css"
+
+        }
+
+      ]
+
+    },
+
+    "routing": {
+
+      "config": {
+
+        "routerClass": "sap.m.routing.Router",
+
+        "controlAggregation": "pages",
+
+        "controlId": "app",
+
+        "transition": "slide",
+
+        "type": "View",
+
+        "viewType": "XML",
+
+        "path": "eshmbtpportal.view",
+
+        "async": true,
+
+        "viewPath": "eshmbtpportal.view"
+
+      },
+
+      "routes": [
+
+        {
+
+          "name": "Login",
+
+          "pattern": "",
+
+          "target": "Login"
+
+        },
+
+        {
+
+          "name": "Home",
+
+          "pattern": "home",
+
+          "target": "Home"
+
+        },
+
+        {
+        "name": "Incident",
+        "pattern": "incident",
+        "target": "Incident"
+        },
+
+
+        {
+        "name": "Risk",
+        "pattern": "risk",
+        "target": "Risk"
+        }
+
+      ],
+
+      "targets": {
+
+        "Login": {
+
+          "viewName": "Login",
+
+          "viewType": "XML",
+
+          "viewLevel": 1
+
+        },
+
+        "Home": {
+
+          "viewName": "Home",
+
+          "viewType": "XML",
+
+          "viewLevel": 2
+
+        },
+
+         "Incident": {
+        "viewName": "Incident",
+        "viewType": "XML",
+        "viewLevel": 3
+       },
+
+      "Risk": {
+       "viewName": "Risk",
+       "viewType": "XML",
+       "viewLevel": 3
+  }
+
+      }
+
+    },
+
+    "rootView": {
+
+      "viewName": "eshmbtpportal.view.App",
+
+      "type": "XML",
+
+      "id": "App",
+
+      "async": true
+
+    }
+
+  }
+
+}
+

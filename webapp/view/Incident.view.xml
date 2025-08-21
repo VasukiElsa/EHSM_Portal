@@ -1,0 +1,50 @@
+<mvc:View
+    controllerName="eshmbtpportal.controller.Incident"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page title="Incident Management">
+        <headerContent>
+            <Button text="Back" icon="sap-icon://nav-back" press="onNavBack"/>
+        </headerContent>
+
+        <content>
+            <!-- Table bound to Incident EntitySet -->
+            <Table id="incidentTable"
+                   inset="false"
+                   items="{/ZDD_ESHM_INCIDENT_MANGEMENT}">
+                
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Incident List" level="H2"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="Incident ID"/></Column>
+                    <Column><Text text="Title"/></Column>
+                    <Column><Text text="Created On"/></Column>
+                    <Column><Text text="Created By"/></Column>
+                    <Column><Text text="Status"/></Column>
+                    <Column><Text text="Plant"/></Column>
+                    <Column><Text text="Location"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{incident_id}"/>
+                            <Text text="{title}"/>
+                            <Text text="{path: 'created_on', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"/>
+                            <Text text="{created_by}"/>
+                            <Text text="{inc_rec_status}"/>
+                            <Text text="{plant_id}"/>
+                            <Text text="{location}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

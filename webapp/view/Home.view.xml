@@ -1,0 +1,49 @@
+<!-- file: eshmbtpportal/view/Home.view.xml -->
+<mvc:View
+    controllerName="eshmbtpportal.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+    <Page
+        id="homePage"
+        title="{i18n>homePageTitle}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <content>
+            <!-- A Vertical Box to hold all content on the page -->
+            <VBox
+                class="sapUiSmallMargin">
+                <Title
+                    text="Welcome to the Home Page!"
+                    level="H1"
+                    class="sapUiLargeMarginTop sapUiLargeMarginBottom" />
+                <Text
+                    text="You have successfully logged in. This is your main dashboard."
+                    class="sapUiMediumMarginBottom" />
+            </VBox>
+
+            <!-- Tile Container for the main dashboard tiles -->
+            <TileContainer
+                id="tileContainer"
+                class="sapUiResponsiveContentPadding">
+                <StandardTile
+                    title="Incident Management"
+                    info="Manage incidents"
+                    icon="sap-icon://incident"
+                    press="onIncidentTilePress" />
+                <StandardTile
+                    title="Risk Assessment"
+                    info="Assess risks"
+                    icon="sap-icon://shield"
+                    press="onRiskTilePress" />
+            </TileContainer>
+
+            <!-- Log out button, placed at the bottom or in a logical position -->
+            <Button
+                text="Log Out"
+                type="Reject"
+                press="onLogoutPress"
+                class="sapUiSmallMarginTop sapUiLargeMarginBottom" />
+        </content>
+    </Page>
+</mvc:View>

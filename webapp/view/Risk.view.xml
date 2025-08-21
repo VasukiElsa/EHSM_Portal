@@ -1,0 +1,54 @@
+<mvc:View
+    controllerName="eshmbtpportal.controller.Risk"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true">
+
+    <Page title="Risk Assessment">
+        <headerContent>
+            <Button text="Back" icon="sap-icon://nav-back" press="onNavBack"/>
+        </headerContent>
+
+        <content>
+            <!-- Table bound to Risk Assessment EntitySet -->
+            <Table id="riskAssessmentTable"
+                   inset="false"
+                   items="{/ZDD_RISKASSESSMENT}">
+
+                <headerToolbar>
+                    <Toolbar>
+                        <Title text="Risk Assessment List" level="H2"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column><Text text="Node ID"/></Column>
+                    <Column><Text text="Created On"/></Column>
+                    <Column><Text text="Created By"/></Column>
+                    <Column><Text text="Changed By"/></Column>
+                    <Column><Text text="Risk Key Ref"/></Column>
+                    <Column><Text text="Assessment Team Member"/></Column>
+                    <Column><Text text="Role"/></Column>
+                    <Column><Text text="Regulation"/></Column>
+                    <Column><Text text="Regulation Link"/></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{node_id}"/>
+                            <Text text="{path: 'created_on_at', type: 'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}"/>
+                            <Text text="{created_by}"/>
+                            <Text text="{changed_by}"/>
+                            <Text text="{risk_key_ref}"/>
+                            <Text text="{asmt_team_member}"/>
+                            <Text text="{role}"/>
+                            <Text text="{regulation}"/>
+                            <Link text="{url_link_to_reg}" href="{url_link_to_reg}" target="_blank"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
