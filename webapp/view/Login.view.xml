@@ -2,14 +2,60 @@
     controllerName="eshmbtpportal.controller.Login"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     displayBlock="true">
-    <Page title="EHSM Login">
-        <content>
-            <VBox class="sapUiSmallMargin">
-                <Input id="employeeId" placeholder="Employee ID"/>
-                <Input id="password" placeholder="Password" type="Password"/>
-                <Button text="Login" press="onLoginPress"/>
-            </VBox>
-        </content>
+    <Page
+        showHeader="false"
+        class="sapUiResponsiveContentPadding loginPageBackground">
+        <VBox
+            alignItems="Center"
+            justifyContent="Center"
+            height="100%"
+            class="loginContainer">
+            <Panel
+                width="auto"
+                class="sapUiResponsiveMargin loginCard">
+                <VBox alignItems="Center">
+                    <core:Icon
+                        src="sap-icon://shield"
+                        size="3rem"
+                        color="#005792"
+                        class="sapUiSmallMarginBottom" />
+
+                    <Title
+                        text="EHSM Portal Login"
+                        level="H1"
+                        class="sapUiSmallMarginBottom" />
+
+                    <Input
+                        id="employeeId"
+                        placeholder="Employee ID"
+                        width="100%"
+                        class="sapUiSmallMarginBottom">
+                        <customData>
+                            <core:CustomData key="icon" value="sap-icon://person-placeholder" />
+                        </customData>
+                    </Input>
+
+                    <Input
+                        id="password"
+                        placeholder="Password"
+                        type="Password"
+                        width="100%"
+                        class="sapUiSmallMarginBottom">
+                        <customData>
+                            <core:CustomData key="icon" value="sap-icon://key" />
+                        </customData>
+                    </Input>
+
+                    <Button
+                        text="Login"
+                        press="onLoginPress"
+                        type="Emphasized"
+                        width="100%"
+                        class="sapUiSmallMarginTop" />
+                </VBox>
+            </Panel>
+        </VBox>
     </Page>
 </mvc:View>

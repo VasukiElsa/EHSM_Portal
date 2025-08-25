@@ -30,7 +30,6 @@
                     <Column><Text text="Assessment Team Member"/></Column>
                     <Column><Text text="Role"/></Column>
                     <Column><Text text="Regulation"/></Column>
-                    <Column><Text text="Regulation Link"/></Column>
                 </columns>
 
                 <items>
@@ -44,7 +43,6 @@
                             <Text text="{asmt_team_member}"/>
                             <Text text="{role}"/>
                             <Text text="{regulation}"/>
-                            <Link text="{url_link_to_reg}" href="{url_link_to_reg}" target="_blank"/>
                         </cells>
                     </ColumnListItem>
                 </items>

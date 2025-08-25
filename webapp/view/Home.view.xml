@@ -1,49 +1,73 @@
-<!-- file: eshmbtpportal/view/Home.view.xml -->
 <mvc:View
     controllerName="eshmbtpportal.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
     displayBlock="true">
+
     <Page
         id="homePage"
-        title="{i18n>homePageTitle}"
-        showNavButton="true"
-        navButtonPress="onNavBack">
+        class="sapUiResponsiveContentPadding dashboardPageBackground">
+
+        <customHeader>
+            <Bar class="dashboardHeader">
+                <contentLeft>
+                    <Title text="EHSM Dashboard" class="dashboardTitle" />
+                </contentLeft>
+                <contentRight>
+                    <Button
+                        id="logoutButton"
+                        text="Logout"
+                        press="onLogoutPress"
+                        icon="sap-icon://log"
+                        type="Reject" />
+                </contentRight>
+            </Bar>
+        </customHeader>
+
         <content>
-            <!-- A Vertical Box to hold all content on the page -->
-            <VBox
-                class="sapUiSmallMargin">
-                <Title
-                    text="Welcome to the Home Page!"
-                    level="H1"
-                    class="sapUiLargeMarginTop sapUiLargeMarginBottom" />
-                <Text
-                    text="You have successfully logged in. This is your main dashboard."
-                    class="sapUiMediumMarginBottom" />
-            </VBox>
+            <l:Grid
+                defaultSpan="L4 M6 S12"
+                hSpacing="2"
+                vSpacing="2"
+                class="sapUiMediumMarginTop">
 
-            <!-- Tile Container for the main dashboard tiles -->
-            <TileContainer
-                id="tileContainer"
-                class="sapUiResponsiveContentPadding">
-                <StandardTile
-                    title="Incident Management"
-                    info="Manage incidents"
-                    icon="sap-icon://incident"
-                    press="onIncidentTilePress" />
-                <StandardTile
-                    title="Risk Assessment"
-                    info="Assess risks"
-                    icon="sap-icon://shield"
-                    press="onRiskTilePress" />
-            </TileContainer>
+                <GenericTile
+                    header="Incident Management"
+                    press="onIncidentTilePress"
+                    frameType="OneByOne"
+                    class="tileShadow">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <VBox justifyContent="Center" alignItems="Center">
+                                    <core:Icon src="sap-icon://warning" size="3rem" color="#e74c3c" class="sapUiTinyMarginBottom tileIcon"/>
+                                    <Text text="Manage incidents efficiently." class="sapUiTinyMarginTop sapMText-Bold sapMText-Text darkText"/>
+                                </VBox>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
 
-            <!-- Log out button, placed at the bottom or in a logical position -->
-            <Button
-                text="Log Out"
-                type="Reject"
-                press="onLogoutPress"
-                class="sapUiSmallMarginTop sapUiLargeMarginBottom" />
+                <GenericTile
+                    header="Risk Assessment"
+                    press="onRiskTilePress"
+                    frameType="OneByOne"
+                    class="tileShadow">
+                    <tileContent>
+                        <TileContent>
+                            <content>
+                                <VBox justifyContent="Center" alignItems="Center">
+                                    <core:Icon src="sap-icon://shield" size="3rem" color="#f39c12" class="sapUiTinyMarginBottom tileIcon"/>
+                                    <Text text="Assess and mitigate risks." class="sapUiTinyMarginTop sapMText-Bold sapMText-Text darkText"/>
+                                </VBox>
+                            </content>
+                        </TileContent>
+                    </tileContent>
+                </GenericTile>
+
+            </l:Grid>
         </content>
     </Page>
 </mvc:View>
